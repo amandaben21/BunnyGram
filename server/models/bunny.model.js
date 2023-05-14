@@ -13,7 +13,7 @@ const BunnySchema = new mongoose.Schema({
         require: [true, "Picture is required"]
     },
 
-    description:{
+    desc:{
         type: String
     },
 
