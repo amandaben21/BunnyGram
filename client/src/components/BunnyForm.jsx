@@ -8,9 +8,11 @@ const BunnyForm = () => {
         img: '', //must match the same in your models in server
         desc: '' //must match the same in your models in server
       });
-      const [errors, setErrors] = useState({});
       const navigate = useNavigate();
-    
+      const [errors, setErrors] = useState({});
+      
+
+      
       const onChangeHandler = (e) => { //updates my Bunny
         setBunny({
           ...bunny,
@@ -51,16 +53,16 @@ const BunnyForm = () => {
         <h1>Post Your Bunny</h1>
       <form action="" className="col-md-6 mx-auto" onSubmit={handleSubmit}>
         {errors.name ? <p className="text-danger">{errors.name}</p> : ''}
-        {errors.number ? <p className="text-danger">{errors.img}</p> : ''}
+        {errors.img ? <p className="text-danger">{errors.img}</p> : ''}
         
         <div className="form-group">
-          <label htmlFor="name">Name of User</label>
+          <label htmlFor="name">Your Name:</label>
           <input type="text" className="form-control" name="name" id="name" onChange={onChangeHandler} />
         </div>
         
         <div className="form-group">
-          <label htmlFor="img">Upload Pic of Bunny</label>
-          <input type="text" className="form-control" name="img" id="img" onChange={onChangeHandler} />
+          <label htmlFor="img">Upload Pic of Bunny:</label>
+          <input type="file" className="form-control" name="img" id="img" onChange={onChangeHandler} />
         </div>
 
         <div className="form-group">
@@ -68,7 +70,7 @@ const BunnyForm = () => {
           <input type="text" className="form-control" name="desc" id="desc" onChange={onChangeHandler} />
         </div>
 
-        <button className="btn btn-info mt-3">Add The Store</button>
+        <button className="btn btn-info mt-3">Submit</button>
       </form>
     </div>
   )
